@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% block javascript_child_library %}
+
+        {% if not IS_GZIP_ENABLED and not IS_COMPRESSED_ENABLED %}
+            {#            do nothing#}
+        {% else %}
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/jquery.cookie.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/owl.carousel.min.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/jquery.lazyload.min.js"></script>
+        {% endif %}
+
+    {% block javascript %}
+
+    {% endblock javascript %}
+</body>
+</html>

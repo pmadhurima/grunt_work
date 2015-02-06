@@ -1,0 +1,554 @@
+{% load custom_filters %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>  <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>  <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]-->
+
+{% load staticfiles %}
+{% load compress %}
+{% load custom_filters %}
+
+
+<head>
+    <script type="text/javascript">
+        if (window.location.pathname == '/') {
+            var img = new Image();
+            var img1 = new Image();
+            img.src = "/static/images/landingPage/sofa_newyear.jpg";
+            img1.src = "/static/images/landingPage/loadSlider.png";
+        }
+    </script>
+
+    <style>
+
+
+        .headerSection {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            max-width: 71.25rem;
+            padding: 6px;
+            background-color: #d20628 !important;
+
+        }
+
+        .logoSection {
+            width: 60%;
+            float: left;
+        }
+
+        .rightSection {
+            width: 40%;
+            float: right;
+        }
+
+        .rightSectionList {
+            float: right;
+            display: inline;
+            list-style: none;
+            margin-right: 13px;
+        }
+
+        .userNameDetails {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 85px;
+            border-right: 1px solid #dcdcdc;
+            border-height: 5px;
+            padding-right: 20px;
+            color: #ffffff;
+            line-height: 5px;
+            margin-top: 10px;
+        }
+
+        .navBar {
+            border-bottom: solid 1px #2b2b2b;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            max-width: 71.25rem;
+            padding: 4px;
+            font-size: 14px;
+            color: #2b2b2b;
+
+        }
+
+        .navigationHeader {
+            width: 100%;
+            height: 27px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            max-width: 71.25rem;
+            border-bottom: 0 !important;
+            padding-top: 1px !important;
+        }
+
+        #nav-list {
+            margin-bottom: 0 !important;
+        }
+
+        .navHeading {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .navBarHeading {
+            padding-top: 3px;
+            margin-top: 0px;
+            border-top-width: 8px;
+            border-bottom-width: 8px;
+            padding-bottom: 2px;
+        }
+    </style>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700' rel='stylesheet' type='text/css'>
+
+
+    <meta name="google-signin-clientid"
+          content="{{ settings.GOOGLE_CLIENT_ID }}"/>
+    <meta name="google-signin-scope"
+          content="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email"/>
+    <meta name="google-signin-requestvisibleactions" content="http://schemas.google.com/AddActivity"/>
+    <meta name="google-signin-cookiepolicy" content="single_host_origin"/>
+    <meta name="google-signin-accesstype" content="offline"/>
+    <meta charset="utf-8"/>
+    <meta content="text/html charset=UTF-8" http-equiv="Content-Type"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Buy custom made furniture online - wardrobes, sofas, kitchen, entertainment units, beds and more</title>
+    <meta name="description"
+          content="Design and buy your custom furniture online with hundreds of options including size, color, fabric and finishing. Our expert craftsmen will build and deliver it at your doorsteps."/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/favicon.ico?3"/>
+    {% block additional_css %}
+    {% endblock additional_css %}
+
+</head>
+<body id="kmBody" class="bannerImage" style="background:#fff !important;clear:both; padding-top: 0px">
+
+{% block body %}
+    {% block header %}
+        <div id="notification">{{ notification }}</div>
+        <div class="fixed show-for-medium-up" style="width:100%;background-color:#d20628;height:65px">
+            <div class="headerSection">
+                <div class="logoSection">
+                    <a href="/" style="margin-left:12px"><img
+                            src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/logo.fw.png"></a>
+                    <span id="user_name" style="display:none">{{ user.name }}</span>
+
+                    <p id="user_email" style="display: none">{{ user.email }}</p>
+                </div>
+                <div class="rightSection">
+                    {% block header-top-right-section %}
+                        <ul class="inline-list icons-list header-icons-list rightSectionList">
+                            <li class="user-name-container"><a class="userNameDetails" id="loginUser"
+                                                               data-reveal-id="AccountModel">
+                                <img class="user-icon"
+                                     src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/user-icon.fw.png">
+                           <span class="user-name">
+                             {% if user.email %}
+                                 {{ user.name }}
+                             {% else %}
+                                 Sign in
+                             {% endif %}
+                           </span></a>
+                                <img style="display:none;margin-left: 65px;margin-top: -8px;"
+                                     class="login-dropdown-icon"
+                                     src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/login-dropdown-icon.fw.png">
+                                <ul class="user-options">
+                                    <li class="mainPageDropdown">
+                                        <a style="color:#000000" href="#">
+                                            <img class="menuPageUserIcon lazy" style="margin-right: 10px" src=""
+                                                 data-src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/user-icon-seleted.fw.png">
+                                                        <span class="user-name"
+                                                              style="color:#b9b9b9;text-overflow: ellipsis;max-width:100px">
+                                                            {{ user.name }}
+                                                        </span>
+                                            <img class="right lazy" style="margin-top: 10px; margin-right: 20px" src=""
+                                                 data-src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/login-dropdown-icon-selected.fw.png">
+                                        </a>
+                                    </li>
+                                    <li class="mainPageDropdown">
+                                        <a href="/mydesigns" class="dropDownMenuText" style="padding-right:84px">My
+                                            Designs</a>
+                                    </li>
+                                    <li class="mainPageDropdown">
+                                        <a href="/shoppinghistory" class="dropDownMenuText" style="padding-right:42px">
+                                            Shopping History</a>
+                                    </li>
+                                    <li class="mainPageDropdown">
+                                        <a class="dropDownMenuText" onclick="logout()" style="padding-right:100px"> Sign
+                                            Out</a>
+                                    </li>
+                                </ul>
+
+
+                            </li>
+
+                            <li>
+                                <a href="/cart" id="cartCount" class="cart-nav">{{ request.cart.items_count }}</a></li>
+                        </ul>
+                    {% endblock %}
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="" style="width:100%;">
+                {% block header-navigation %}
+                    <div class="header-navigation navigationHeader ">
+                        <ul class="inline-list" id="nav-list" style="height:34px">
+                            <li class="navHeading"><a href="/" class={% if messages.request.path == '/' %}"active"
+                            {% endif %}><span class="shadow navBarHeading">HOME</span></a></li>
+
+                            <li class="navHeading spacingInHeader"><a href="/templates"
+                                                                      class={% if messages.request.path == '/templates/' %}"active"
+                                                                      {% endif %}><span
+                                    class="shadow navBarHeading">WARDROBES</span></a>
+                            </li>
+
+                            {% url 'KitchenManagement.views.estimator' as kitchenEstimatorUrl %}
+                            <li class="navHeading spacingInHeader">
+                                <a href="{{ kitchenEstimatorUrl }}"
+                                   {% if messages.request.path == kitchenEstimatorUrl %}class="active"
+                                   {% endif %}>
+                                    <span class="shadow navBarHeading">KITCHENS</span></a>
+                            </li>
+
+                            {% url 'SofaManagement.views.sofa' as sofaListingUrl %}
+                            {% url 'SofaManagement.views.customize' as sofaDetailsUrl %}
+                            <li class="navHeading spacingInHeader">
+                                <a href="{{ sofaListingUrl }}"
+                                   {% if messages.request.path == sofaListingUrl or messages.request.path == sofaDetailsUrl %}class="active"
+                                   {% endif %}>
+                                    <span class="shadow navBarHeading">SOFAS</span></a>
+                            </li>
+
+
+                            <li class="navHeading spacingInHeader" style="display:none"><a href="/chairs"><span
+                                    class="shadow navBarHeading">CHAIRS</span><span
+                                    class="current-nav"></span></a></li>
+                            <li class="navHeading spacingInHeader" style="display:none"><a href="/tables"><span
+                                    class="shadow navBarHeading">TABLES</span><span
+                                    class="current-nav"></span></a></li>
+
+                            <li class="navHeading spacingInHeader" style="display:none"><a href="/beds"><span
+                                    class="shadow navBarHeading">BEDS</span><span
+                                    class="current-nav"></span></a></li>
+
+                            <li class="navHeading spacingInHeader"><a href="/contactus"
+                                                                      class={% if messages.request.path == '/contactus/' %}"active"
+                                                                      {% endif %}><span class="shadow navBarHeading">ABOUT US</span><span
+                                    class="current-nav"></span></a></li>
+                            {#                    <li><a><span class="shadow">UP COMING</span> <span class="current-nav"></span></a></li>#}
+                            <li class="ItemOnLogin designOnHeader navHeading spacingInHeader" style="display:none"><a
+                                    href="/mydesigns"
+                                    class={% if messages.request.path == '/mydesigns/' %}"active"
+                                    {% endif %}><span
+                                    class="shadow navBarHeading">MY DESIGNS</span>
+                                <span class="current-nav"></span></a></li>
+                            <ul class="right  phoneNumberLandingPage inline-list"
+                                style="margin-right: 13px;margin-bottom:0">
+                                <li style="padding-right:7px;padding-top:5px"><img
+                                        src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/callIcon.png"
+                                        height=30px
+                                        width=20px/></li>
+                                <li style="margin-left:0px"><span
+                                        style="padding-left:6px;color:#fff;font-size:14px;padding-top:2px">{{ CONTACT_PHONE_NUMBER }}</span>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+        {% block headerSmall %}
+            <div class="small-12 header fixed show-for-small"
+                 style="height:50px;background-color: #D4062E !important;clear:both">
+                <nav class="top-bar" data-topbar>
+                    <ul class="title-area" style="padding-left:30px">
+                        <li class="logoSmallScreen"><a href="#"><img
+                                src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/logo.fw.png"
+                                width=150></a>
+                        </li>
+                        <li class="toggle-topbar menu-icon" style="margin-right: 10px"><a href="#"></a></li>
+                    </ul>
+                    <section class="top-bar-section">
+                        <ul class="left" id="user-options-design-pages"
+                            style="margin-top: 20px;border:solid 1px #ddd;">
+                            <li class="itemOnNotSignin" style="border-bottom:dotted 1px #ccc">
+                                <a style="color:#000000" href="#"><img style="margin-right: 10px"
+                                                                       src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/user-icon-seleted.fw.png"><span
+                                        class="user-name" style="color:#333">Sign In</span></a></li>
+                            <li class="ItemOnLogin" style="display:none">
+                                <a style="color:#000000" href="#"><img style="margin-right: 10px"
+                                                                       src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/user-icon-seleted.fw.png"><span
+                                        class="user-name" style="color:#333">{{ user.name }}</span></a></li>
+
+                            <li class="ItemOnLogin"
+                                style="display:none;padding-left:30px;border-bottom:dotted 1px #ccc"><a
+                                    class="dropDownMenuText" onclick="logout()"> Sign Out</a></li>
+
+                            <li class=""><a href="/"><img
+                                    src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/homeIcon.fw.png"> Home
+                                Page</a>
+                            </li>
+                            <li class="" style="padding-left:30px"><a href="/design/closets/step1/">Wardrobes</a>
+                            </li>
+                            {% url 'KitchenManagement.views.estimator' as kitchenEstimatorUrl %}
+                            <li class="" style="padding-left:30px"><a href="{{ kitchenEstimatorUrl }}">Kitchens</a></li>
+
+                            <li class="" style="padding-left:30px"><a href="/mydesigns">My Design</a></li>
+                        </ul>
+
+                    </section>
+                </nav>
+            </div>
+
+
+        {% endblock %}
+        {% block headerExtra %}
+        {% endblock %}
+    {% endblock header %}
+    {% if messages.request.path == '/' %}
+        {% include 'kustommade/fallingfixer.html' %}
+        {% url 'SofaManagement.views.sofa' as sofaListingUrl %}
+        {% url 'SofaManagement.views.customize' as sofaDetailsUrl %}
+        <div class="off-canvas-wrap home_slider" style="max-height:550px">
+            <div class="image-slide-single preLoadSlider slider-click" data-target="{{ sofaListingUrl }}">
+                <img class="img-background img-background-slider" style="width:100%;height:auto"
+                     src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/sofa_newyear.jpg"
+                     alt="slide1"/>
+
+                <div class="orbit-caption" id="caption1">
+                    <div class="sliderText buttonsForSmallScreen">
+                        <div class="wadrobeTextStyle hide-for-small" style="top:23%">
+                            <span class="textOnSlider">Size, Style & Finish of</span>
+                            <span class="textStyle inline-text">'Your'&nbsp;</span> <span class="inline-text textStyling">Choice</span>
+                        </div>
+                        <div class="orbit-options sofa-padding" >
+
+                            <div class="orbit-option"><a href="{{ sofaListingUrl }}"
+                                                         class="button-medium start-from-popular background-sofa-button-image"></a></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="preLoadSlider" style="width:100%;text-align:center;"><img style="padding-top:9px" src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/loadSlider.png">
+            </div>
+        </div>
+    {% endif %}
+    {% if IS_GZIP_ENABLED %}
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}minifiedCompressed/site.css">
+    {% elif IS_COMPRESSED_ENABLED %}
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}minified/site.css">
+    {% else %}
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/normalize.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/foundation.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/icons.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}sprites/km-sprite.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}sprites/km-sprite-landingPage.css">
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_CDN_URL|CDNMapper }}css/flaticon.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/owl.carousel.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/animate.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/main.css">
+        <link rel="stylesheet" href="{{ STATIC_CDN_URL|CDNMapper }}css/newMain.css">
+    {% endif %}
+    {% block content %}
+
+    {% endblock content %}
+    <div id="myModalDesign" class="reveal-modal viewModal" data-reveal="">
+
+    </div>
+    <div id="shoppingHistoryModal" class="reveal-modal viewModal" data-reveal="">
+
+    </div>
+    {% include 'referLoginModel.html' %}
+    {% include 'referSignInToSave.html' %}
+
+    <div class="footer ">
+
+        {% block footer %}
+
+        {% endblock footer %}
+        <div id="cartModal" class="reveal-modal medium" data-reveal style="padding-top: 1%;">
+            <div class="row">
+
+                <div style="margin-top:60px;text-align: center">
+                    <div style="font-family: 'Myriad Pro';"><p
+                            class="cartDiv">Your cart already has <span class="cartDiv"
+                                                                        id="cartPreviousValue"></span> items from
+                        your previous session. Those items are also added to current cart.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="center" style="text-align: center">
+                <button class="tab-next center cartSubmit" onclick="reloadPage()">OK</button>
+            </div>
+            <a class="close-reveal-modal" onclick="reloadPage();">
+                <img src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/cross.png">
+            </a>
+        </div>
+        <div id="SubscribeModal" class="reveal-modal medium" data-reveal style="padding-top: 1%;">
+            <div class="row">
+                <div class="large-6 columns">
+                    <img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/item1.fw.png"/>
+                </div>
+                <div class="large-6 columns" style="margin-top:60px">
+                    <h2 id="success" style="font-family: 'Myriad Pro';"><span
+                            style="font-size:28px;color:#333;font-weight:normal;margin-top:5px;">Thanks for your Subscription!!</span>
+                    </h2>
+
+                    <h2 id="fail" style="font-family: 'Myriad Pro';"><span
+                            style="font-size:28px;color:#333;font-weight:normal;margin-top:5px;">Thanks for your Subscription!!</span>
+                    </h2>
+
+                    <h3 style="font-family: 'Myriad Pro'"><span
+                            style="font-size:18px;color:#333;font-weight:normal;margin-bottom:5px;margin-left:-35px">You will stay updated with our latest offers on your email.</span>
+                    </h3>
+                </div>
+            </div>
+
+            <a class="close-reveal-modal">
+                <img src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/cross.png">
+            </a>
+        </div>
+    </div>
+
+
+    <div class=" footer-bottom  text-center">
+        Copyrights &#169; Kustommade.com All Rights Reserved
+    </div>
+
+    <div style="display: none">
+        <input type="hidden" id="facebookAppId" value="{{ settings.FACEBOOK_APP_ID }}">
+        <input type="hidden" id="googleAppId" value="{{ settings.GOOGLE_CLIENT_ID }}">
+        <input type="hidden" id="googleTrackingId" value="{{ settings.GOOGLE_TRACKING_ID }}">
+    </div>
+
+
+    {% block javascript_base_library %}
+
+        {% if not IS_GZIP_ENABLED and not IS_COMPRESSED_ENABLED %}
+            {#            do nothing#}
+        {% else %}
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/modernizr.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/jquery.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/foundation.min.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/jquery-ui-1.10.4.custom.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/jquery.cookie.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/owl.carousel.min.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/jquery.lazyload.min.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/underscore.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/async.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/kinetic.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/closets/touch.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/main.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/base/Authentication.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/closets/app.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/closets/utils.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/checkout/price.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/checkout/checkout.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/base/cart.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/errorMsg.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/SignupSubscription.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/fb.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/headerNavigationBar.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/googleAnalytics.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/ajaxBusyLodingIndicator.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/utils.js"></script>
+        {% endif %}
+        {% if IS_ZOHO_ENABLED %}
+            <script type="text/javascript">
+                var $zoho = $zoho || {livedesk: {values: {}, ready: function () {
+                }}};
+                var d = document;
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.defer = true;
+                s.src = "https://livedesk.zoho.com/kustommade/float.ls?embedname=kustommade";
+                t = d.getElementsByTagName("script")[0];
+                t.parentNode.insertBefore(s, t);
+            </script>
+        {% endif %}
+        <script>(function () {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+            _fbq.push(['addPixelId', '1409473995993340']);
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', 'PixelInitialized', {}]);
+        </script>
+        <noscript><img height="1" width="1" alt="" style="display:none"
+                       src="https://www.facebook.com/tr?id=1409473995993340&amp;ev=PixelInitialized"/></noscript>
+
+
+
+    {% endblock javascript_base_library %}
+
+    {% block javascript_child_library %}
+
+    {% endblock javascript_child_library %}
+
+    {% block javascript %}
+
+    {% endblock javascript %}
+    <script>
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '{{ settings.FACEBOOK_APP_ID }}',
+                xfbml: true,
+                version: 'v2.0',
+                status: true, // check login status
+                cookie: true // enable cookies to allow the server to access the session
+            });
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        $(window).load(function () {
+            setTimeout(function () {
+                var head = document.getElementsByTagName('head')[0];
+                var scriptTag = document.createElement('script');
+                scriptTag.type = 'text/javascript';
+                scriptTag.src = "//assets.pinterest.com/js/pinit.js";
+                head.appendChild(scriptTag);
+
+
+            }, 2500);
+        });
+    </script>
+{% endblock body %}
+
+{% if IS_GOOGLE_REMARKETING_ENABLED %}
+    {% include 'google_remarketing.html' %}
+{% endif %}
+
+</body>
+
+</html>

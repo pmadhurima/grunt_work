@@ -1,0 +1,120 @@
+.first-list li
+{
+    display: inline-block;
+    color: darkgray;
+    align-self: center;
+}
+
+.first-list
+{
+    text-align: justify;
+}
+
+.first-list:after
+{
+    content:' ';
+    display:inline-block;
+    width: 90%;
+    height: 0
+}
+
+.theory1
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-style:italic;
+    text-align:center;
+    color: white;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.theory2
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-style:italic;
+    text-align:center;
+}
+
+.reviews
+{
+    margin-right: 3%;
+    padding-bottom: 40px;
+}
+
+.buttons
+{
+    background-color:rgb(83,83,83);
+    width:240px;
+    height:36px;
+    border: none;
+    color:white;
+    margin-left: 25px;
+}
+
+p
+{
+    color: rgb(80,80,80) ;
+}
+
+h3
+{
+    color: rgb(80,80,80);
+    font-size: x-large;
+    margin-bottom: 0px;
+}
+
+.funiture
+{
+    font-size: xx-small;
+}
+
+input[type="text"], input[type="email"]
+{
+    height: 30px;
+}
+
+#owl-demo .item img{
+    display: block;
+    width: auto;
+    height: 100px;
+}
+
+.fieldWrapper input[type="text"]
+{
+    width: 100%;
+    height: 30px;
+}
+
+.fieldWrapper label {
+    font-size: large;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+}
+
+.fieldWrapper textarea
+{
+    height: 100px;
+    width: 100%;
+}
+
+.fieldWrapper ul li label
+{
+    font-size: x-small;
+}
+
+.fieldWrapper ul
+{
+    display: inline-block;
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.fieldWrapper ul li
+{
+    display: inline-block;
+    padding-right: 38px;
+    margin: auto;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/webhome/contact/" method="post">{% csrf_token %}
+        {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.label_tag }}:<br/>
+        {{ field.errors }}<br>
+        {{ field }}<br>
+    <br>
+    </div>
+{% endfor %}
+        <input type="submit" value="Submit" />
+    </form>
+    {% block javascript %}
+        {% if IS_GZIP_ENABLED %}
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}minifiedCompressed/indexPage.js"></script>
+        {% elif IS_COMPRESSED_ENABLED %}
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}minified/indexPage.js"></script>
+        {% else %}
+
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/base/home.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/jquery-ui-1.10.4.custom.js"></script>
+
+
+        {% endif %}
+        <script>
+                var img = ['/static/images/landingPage/design_from_scratch_hover.fw.png','/static/images/landingPage/start_from_templates_hover.fw.png','/static/images/landingPage/ShopNow_Hover.fw.png']
+
+                for(var i =0 ; i< img.length; i++){
+                    var img1 = new Image();
+                    img1.src = img[i];
+                }
+
+        </script>
+
+    {% endblock javascript %}
+</body>
+</html>

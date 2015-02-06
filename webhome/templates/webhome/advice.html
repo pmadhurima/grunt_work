@@ -1,0 +1,152 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'webhome/adivce.css' %}">
+    <link rel="stylesheet" href="{% static "owl-carousel/owl.carousel.css" %}">
+    <link rel="stylesheet" href="{% static "owl-carousel/owl.theme.css" %}">
+    <script src="{% static "assets/js/jquery-1.9.1.min.js" %}"></script>
+    <script src="{% static "owl-carousel/owl.carousel.js" %}"></script>
+    <script src="{% static "slider.js" %}"></script>
+    <script>
+        function scrolltop()
+        {
+            window.scrollTo(0,0);
+        }
+    </script>
+    <title> Expert Advice Page</title>
+</head>
+<body>
+    <header style="padding-left: 200px;padding-right:200px;background-color: lightgray;line-height: 40px">
+            <p>Call @ - 040-60606083  <a href="Blog">Blog</a>  <img src="{% static "webhome/images/person.fw.png" %}" align="right" /> <img src="{% static "webhome/images/cart.fw.png" %}" align="right"/></p>
+    </header><br/>
+    <div id="heading" align="center">
+        <p style="color: darkgrey">
+            <img src="{% static "webhome/images/header.fw.png" %}" style="border-color: darkgrey;border-style: none none solid none;border-width: 2px;padding-bottom: 5px;"/>
+
+            <br/>UNIQUELY YOURS
+        </p>
+    </div>
+    <div id="after head" align="center">
+        <ul class="first-list">
+            <li><a href="#">WARDROBES</a></li>
+            <li><a href="#">SOFAS</a></li>
+            <li><a href="#">KITCHENS</a></li>
+            <li><a href="#">DINING</a></li>
+            <li><a href="#">BEDS</a></li>
+            <li><a href="#">HOME DECOR</a></li>
+            <li align="right">
+            <li> <input type="text" size="25" value="search"/></li>
+            </ul>
+        <div style="z-index: 3;position: absolute;margin-top: 15%;width: 100%;height: 300px;background-color: black;opacity:0.3;filter:alpha(opacity=30);">
+                <h4 style="color: white;font-size: xx-large;opacity: 1.5">FURNISH YOUR HOME</h4>
+                <p style="color: yellow">Submit your floor plan and requirements to get your furnishing advice by our experts</p>
+                <input type="button" value="REQUEST NOW" style="border-color: white;background: #808080"/>
+         </div>
+        <div style="z-index: 0;position: relative;width: 100%;height: 800px">
+            <img width="100%" src="{% static "webhome/images/img1.fw.png" %}" height="600px" align="center" />
+            <img src="home1" width="24%" height="190px" />
+            <img src="home1" width="24%" height="190px" />
+            <img src="home1" width="24%" height="190px" />
+            <img src="home1" width="24%" height="190px" />
+        </div>
+    </div>
+    <div class="expert" style="margin-left: 20%;margin-right: 20%;padding-left: 10%;padding-right: 10%">
+        <h3 align="center">GET EXPERT ADVICE</h3> <hr width="45%" align="center" style="border-color: darkgrey;margin-top: 0px"><br/><br/>
+        <p class="theory2"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p><br/><br>
+        <form action="/webhome/advice/" method="post" enctype="multipart/form-data">{% csrf_token %}
+            {% for field in form %}
+                <div class="fieldWrapper">
+                    {{ field.label_tag }}:
+                    {{ field.errors }}<br>
+                    {{ field }}<br>
+                    <br>
+                </div>
+            {% endfor %}
+            <input type="submit" value="Submit" style="width: 250px;margin-left: 30%" class="buttons" align="center" /><br/>
+            <p style="color: darkgrey;font-size: smaller" align="center">Need help Call Us @040-60606083</p>
+        </form>
+    </div>
+    <input type="button" value="&#8607 top" style="border-style: none;background: black;position: relative;" onclick="scrolltop()" align="right"/>
+    <hr>
+    <div>
+        <h3 align="center">RECENT PROJECTS</h3><hr align="center" width="20%" style="border-color: darkgrey;margin-top: 0px">
+        <input type="button" value="HYDERABAD" style="float: right;background: white;height: 30px;width: 200px"><br/><br/>
+        <img src="project1" width="49%" height="350px" alt="image"/>
+        <img src="project1" width="49%" height="350px" alt="image"/>
+        <img src="project1" width="49%" height="350px" alt="image"/>
+        <img src="project1" width="49%" height="350px" alt="image"/>
+    </div>
+
+     <h3 align="center">BUILD YOUR EXCLUSIVE DESIGN</h3>
+        <p align="center">Use our 'DESIGN STUDIO' to design your own furniture</p><br/>
+        <div style="background-color: dimgray" align="center">
+            <br/>
+            <br/>
+            <p class="theory1"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+            <br/>
+            <input type="button"  value="DESIGN NOW" class="buttons" style="border-color: white;border-style: solid"/>
+            <input type="button"  value="SHOP NOW" class="buttons" style="border-color: white;border-style: solid"/><br/><br/>
+        </div>
+    <div class="reviews" align="center" style="margin-top: 40px">
+            <h3 >CUSTOMER REVIEWS</h3><hr width="20%" align="center " style="border-color: darkgrey;padding-top: 0px;margin-top: 0px">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="{% static "webhome/images/design.fw.png" %}" />
+                    <p>Alekya from Hyderabad</p>
+                    <p>" Quality, Price & customer support was amazing, I want to give 6 stars"</p>
+                </div>
+                <div class="item">
+                    <img src="{% static "webhome/images/expert.fw.png" %}"/>
+                    <p>Person from secunderabad</p>
+                    <p>"Quality, Price & customer support was amazing, I want to give 6 star"</p>
+                </div>
+            </div>
+            <ul class="first-list">
+                <li><img src="{% static "webhome/images/free home.fw.png" %}"/>Free Home Delivery</li>
+                <li><img src="{% static "webhome/images/original.fw.png" %}" />100% original</li>
+                <li><img src="{% static "webhome/images/secure.fw.png" %}">Secure Payment</li>
+                <li><img src="{% static "webhome/images/30 days.fw.png" %}">30 Days Leadtime</li>
+                <li><img src="{% static "webhome/images/support.fw.png" %}">24/7 Support </li>
+            </ul>
+        </div>
+        <div>
+            <div style="float: left;width: 30%;height: 200px">
+                <ul style="list-style: none;text-align: start">
+                    <li>Contact Us</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                    <li>Delivery & Return Policy</li>
+                    <li>   </li><br/><br/>
+                    <li style="color: darkgrey"> Follow us on</li>
+                    <img src="{% static "webhome/images/follow.fw.png" %}"/>
+                </ul>
+            </div>
+             <div style="background-color: lightgray;height: 200px;float: right;width: 35%;margin-right: 50px;margin-bottom: 40px">
+                <p style="padding: 20px 40px 20px 40px;margin-left: 20px">Sign up for our Newsletter and you could win exciting offers and shopping vouchers!</p>
+                <input type="text" value="Your e-mail" style="color: darkgrey;height: 35px;margin-left: 40px" size="30"/>
+                 <input type="button" style="background: red;border-color: red;color: white;width: 100px;height: 35px;" value="Sign up"/>
+                 <p style="color: darkgrey;font-size: smaller;margin-left: 40px;text-align: left;margin-top: 0px">"No Spam" we cross our hearts</p>
+            </div>
+            <div style="height: 200px" >
+                <ul style="list-style: none;text-align: start">
+                    <li> Warranty</li>
+                    <li>Care Instructions</li>
+                    <li>Returns</li>
+                    <li>Quality Promise</li>
+                    <li>Materials</li><br/>
+                    <li style="color: darkgrey">Shipping Partners</li>
+                    <img src="{% static "webhome/images/dtdc.fw.png" %}"/>
+                    <img src="{% static "webhome/images/ebs.fw.png" %}" />
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer style="padding-top: 25px;margin-bottom: 0px;text-align: center">
+        <p style="background-color: darkgrey;height: 40px;padding-top: 10px" align="center"> @2013, KustomMade.com, All rights reserved </p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,281 @@
+{% extends 'baseTemplate.html' %}
+{% load custom_filters %}
+{% block content %}
+    <div class="off-canvas-wrap home_slider" style="max-height:550px;width:100% !important" >
+        <span class="preloader"></span>
+        <div class="home_slider_container owl-carousel "  style="display:none" >
+            {% url 'SofaManagement.views.sofa' as sofaListingUrl %}
+            {% url 'SofaManagement.views.customize' as sofaDetailsUrl %}
+            {% url 'KitchenManagement.views.estimator' as kitchenEstimatorUrl %}
+
+            <div class="image-slide-single">
+                <img class="img-background img-background-slider slider-click" data-target="{% url 'templates' %}"
+                     src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/wardrobe_newyear.jpg"
+                     alt="slide1"/>
+
+                <div class="orbit-caption" id="caption1">
+                    <div class="sliderText buttonsForSmallScreen" style="top:61% !important">
+                        <div class="wadrobeTextStyle hide-for-small">
+                            <span class="textOnSlider">Wardrobe crafted with</span>
+                            <span class="textStyle inline-text">'Your'</span> <span class="inline-text textStyling">&nbsp;Design</span>
+                        </div>
+                        <div class="orbit-options wardrobe-buttons-display wardrobe-padding">
+                            <div class="orbit-option ">
+                                <a href="{% url 'design' %}" class="button-medium hide-for-small wardrobe-design-background"></a>
+                            </div>
+                            <div class="orbit-option review-text or-symbol-padding">
+                                <a class="or-symbol"></a>
+                            </div>
+                            <div class="orbit-option"><a href="{% url 'templates' %}"
+                                                         class="button-medium start-from-popular wardrobe-popular-designs-background" style="margin:0px !important"></a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-slide-single">
+                <img class="img-background img-background-slider slider-click" data-target="{{ kitchenEstimatorUrl }}"
+                     src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/kitchen_newyear.jpg"
+                     alt="slide1"/>
+
+                <div class="orbit-caption" id="caption1">
+                    <div class="sliderText buttonsForSmallScreen">
+                        <div class="wadrobeTextStyle hide-for-small" style="top:23%">
+                            <span class="textOnSlider">Elegant and spacious</span>
+                            <span class="textStyle inline-text">'Modular Kitchens'</span>
+                        </div>
+                        <div class="orbit-options sofa-padding">
+
+                            <div class="orbit-option"><a href="{{ kitchenEstimatorUrl }}"
+                                                         class="button-medium start-from-popular background-sofa-button-image"></a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-slide-single">
+                <img class="img-background img-background-slider slider-click" data-target="{{ sofaListingUrl }}"
+                     src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/sofa_newyear.jpg"
+                     alt="slide1"/>
+
+                <div class="orbit-caption" id="caption1">
+                    <div class="sliderText buttonsForSmallScreen">
+                        <div class="wadrobeTextStyle hide-for-small" style="top:23%">
+                            <span class="textOnSlider">Size, Style & Finish of</span>
+                            <span class="textStyle inline-text">'Your'&nbsp;</span> <span class="inline-text textStyling">Choice</span>
+                        </div>
+                        <div class="orbit-options sofa-padding">
+
+                            <div class="orbit-option"><a href="{{ sofaListingUrl }}"
+                                                         class="button-medium start-from-popular background-sofa-button-image"></a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <div id="howItWorks" class="section-title" style="width:100%;margin-left:auto;margin-right:auto;max-width:71.25rem">
+        <a class="howItWorksLink click-scroll" data-target="howItWorks" data-caption='kustommadeWorking'>Own Your Dream Wardrobe in Three Simple Steps</a>
+    </div>
+        <div class="margin-top-20" style="width:100%;;margin-left:auto;margin-right:auto;max-width:71.25rem">
+            <ul class="large-block-grid-3 medium-block-grid-3 text-center landingPageGrid setHowItWorksColor">
+                <li><a title="Craft Your Design" href="/design/closets/step1/" class="howitworks_step1 "><img  src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/working1.png"
+                        /></a></li>
+                <li><a data-reveal-id="workingStep2" class="howitworks_step2 "><img  src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/working2.png"
+                        /></a></li>
+                <li><a data-reveal-id="workingStep3" class="howitworks_step3 "><img  src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/working3.png"
+                        /></a></li>
+            </ul>
+        </div>
+
+
+    <div class="row section-title" id="bestSellers">
+        <a data-target="bestSellers" class="click-scroll"><span>Browse Wardrobe Categories</span></a>
+    </div>
+    <div class="row">
+        <div class="small-12 columns margin-top-20">
+
+        <ul class="large-block-grid-3 small-block-grid-1 medium-block-grid-2 text-center landingPageGrid GridItems setHowItWorksColor"
+            data-equalizer="">
+       {% for collection in collections %}
+        <li class="grid-image-collections">
+            <div>
+                <a href="{{ collection.hyperLink }}">
+                    <section class="grid-section">
+                        <div class="onsaleDisplayBlock">
+                            <img class="onSale"
+                                 src="{{ STATIC_CDN_URL|CDNMapper }}images/sofa/newArraval.jpg">
+                        </div>
+                        <div>
+                         <section class="grid-item-details">
+                        <div class="margin-bottom-5 gridImageText" style="padding-top:15px">
+                            <span class="getName">{{ collection.templateDescription }} </span>
+                        </div>
+                        <div class="margin-top-5"><span class="landingPagePriceColor">Starts @ <span
+                                >&#8377</span>{{ collection.price }}</span></div>
+                    </section>
+                        <img alt="{{ collection.description }}" class="lazy grid-image-collections" data-original="{{ STATIC_CDN_URL|CDNMapper }}{{ collection.image }}"
+                             src="{{ STATIC_CDN_URL|CDNMapper }}{{ collection.image }}">
+                        </div>
+
+                        <a href="{{ collection.hyperLink }}" class="tiny buttonDisplay buttonOnGridImages"><img
+                                src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/designNow.jpg"/></a>
+
+                    </section>
+
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+        </ul>
+        <div   class="small-1 column verticalButton hide-for-small"><a href="{% url 'design' %}">
+            <ul id="sideNewDesignFixedButton" style="display: none;right:0;list-style-type:none;background-color: #d20628;width:40px;z-index:10;padding-left:15px;height:220px;position:fixed;top:50%;">
+                <li class="templatesVerticalButton"><img
+                        src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/designNowSymbol.fw.png"/></li>
+                <li style="margin-top:10px"><p style="font-size:12px;color:#fff;font-weight:bold">S<br/>T<br/>A<br/>R<br/>T
+                </p></li>
+
+
+                <li style="font-size:12px;color:#fff;margin-top:-5px;font-weight:bold">N<br/>E<br/>W</li>
+
+            </ul>
+        </a>
+        </div>
+        </div>
+    </div>
+
+    <div class="row section-title">
+    </div>
+    <div class="row" style="padding:10px 0px 20px 0px;">
+        <div class="columns small-12 small-center">
+            <a href="design/closets/step1/"><img src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/create_now_banner.jpg"></a>
+        </div>
+    </div>
+    <div class="topArrowSpacing show-for-medium-up show-for-large-up ">
+        <a id="toparrow" href="#"><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/topArrow.fw.png"></a>
+    </div>
+
+    <div class="row section-title" id="customerReviews">
+        <a data-target="customerReviews" class="click-scroll">Customer Reviews</a>
+    </div>
+
+    <div class="row review_slider owl-carousel" id="customer-accolades hideAtBottom" data-equalizer>
+        <div class="large-12 medium-12 small-12 columns review">
+            <div class="reviewer-image">
+                <img src="{{ STATIC_CDN_URL|CDNMapper }}images/review/laxmi.png">
+            </div>
+            <div class="review-content">
+                <div class="reviewer-loc">
+                    <span class="custmerTitle">SaiLaxmi <span class="sub-title2">from Hyderabad</span></span>
+                </div>
+                <div class="review-text">
+                    <span>" Sleek modern wardrobe at this price
+                        is unbelievable. KustomMade folks are
+                        the wardrobe experts ! "</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="large-12 medium-12 small-12 columns review">
+
+            <div class="reviewer-image">
+                <img src="{{ STATIC_CDN_URL|CDNMapper }}images/review/alekhya.png">
+            </div>
+            <div class="review-content">
+                <div class="reviewer-loc">
+                    <span class="custmerTitle">Alekhya <span class="sub-title2">from Hyderabad</span></span>
+                </div>
+                <div class="review-text">
+                    <span>" Quality, Price & customer support was
+                        amazing, I want to give 6 stars"</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row landingpageFooter">
+        <iframe  src="https://www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/KustomMadeFurniture&width=1126&height=200&colorscheme=light&show_faces=true&header=false&stream=false&show_border=false&appId={{ FACEBOOK_APP_ID }}"
+                scrolling="no" frameborder="0" data-height="300px" data-width="300px"
+                style="border:none; overflow:hidden; width:inherit; height:200px;"
+                allowtransparency="true"></iframe>
+    </div>
+
+    <div id="workingStep2" class="reveal-modal medium howItWorksModal" data-reveal="" style="z-index:100">
+        <p  class="heading"> Expert Visit </p>
+
+        <p class="howItWorksText">
+                <span class="highlighted">Our expert will visit you</span> to take accurate measurements, show material samples, help with modifying design and resolve any doubts you have.
+            </p>
+            <p class="howItWorksText">
+                Once completely satisfied, you can <span class="highlighted">confirm the order</span> by paying 50% of total amount.
+            </p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="workingStep3" class="reveal-modal medium howItWorksModal" data-reveal="" style="z-index:100">
+        <p  class="heading"> Installation </p>
+
+        <p class="howItWorksText">
+                We will notify you once the wardrobe is ready. You pay 40% of the amount, and the wardrobe will be shipped to you.
+        </p>
+        <p class="howItWorksText">
+            <span class="highlighted">Our experts will install the wardrobe at your place</span>, and collect the rest of the amount, hopefully with a "Job Well Done" compliment!
+        </p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div class="row">
+        <div class="small-12 large-12 medium-12 columns margin-top-20">
+            <ul class="large-block-grid-5 medium-block-grid-5 text-center landingPageGrid setHowItWorksColor"
+                data-equalizer="">
+                <li><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/shipping.fw.png"><span
+                        class="howItWorksInfo"> Free Home Delivery</span></li>
+                <li><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/original.fw.png"><span
+                        class="howItWorksInfo"> 100% Original</span></li>
+                <li><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/product.fw.png"><span
+                        class="howItWorksInfo"> Secure Payment</span></li>
+                <li><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/time.fw.png"><span class="howItWorksInfo"> 30 Days Leadtime</span>
+                </li>
+                <li><img src="{{ STATIC_CDN_URL|CDNMapper }}images/landingPage/phone.fw.png"><span
+                        class="howItWorksInfo"> 24/7 Support</span></li>
+            </ul>
+        </div>
+    </div>
+    <div id="myModal" class="reveal-modal" data-reveal>
+        <p>Please specify valid width and height</p>
+        <p>Currently we support only wardrobes width between 32" to 144" and height between 72" to 84"</p>
+        <p>Require wardrobe with different dimensions? Please <a href="{% url 'contactus' %}" target="_blank">Contact Us</a> and we will be happy to help
+        </p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+    {% include "subscribeModal.html" %}
+{% endblock content %}
+{% block javascript %}
+    {% if IS_GZIP_ENABLED %}
+        <script src="{{ STATIC_CDN_URL|CDNMapper }}minifiedCompressed/indexPage.js"></script>
+    {% elif IS_COMPRESSED_ENABLED %}
+        <script src="{{ STATIC_CDN_URL|CDNMapper }}minified/indexPage.js"></script>
+    {% else %}
+
+        <script src="{{ STATIC_CDN_URL|CDNMapper }}js/base/home.js"></script>
+        <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/jquery-ui-1.10.4.custom.js"></script>
+
+
+    {% endif %}
+    <script>
+            var img = ['/static/images/landingPage/design_from_scratch_hover.fw.png','/static/images/landingPage/start_from_templates_hover.fw.png','/static/images/landingPage/ShopNow_Hover.fw.png']
+
+            for(var i =0 ; i< img.length; i++){
+                var img1 = new Image();
+                img1.src = img[i];
+            }
+
+    </script>
+
+{% endblock javascript %}

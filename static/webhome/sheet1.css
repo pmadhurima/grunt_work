@@ -1,0 +1,86 @@
+.theory
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:120%;
+    font-style:italic;
+    color:rgb(82,82,82);
+    text-align:center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.theory2
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:120%;
+    font-style:italic;
+    color:rgb(82,82,82);
+    text-align:center;
+    padding-bottom: 5%;
+    padding-left: 22%;
+    padding-right: 22%;
+}
+
+.buttons
+{
+    background-color:rgb(83,83,83);
+    width:240px;
+    height:36px;
+    border: none;
+    color:white;
+}
+
+.common-line
+{
+    background-color:transparent;
+    border-color:rgb(170,170,170);
+    border-width:1px;
+    border-style:solid;
+    margin-top: 90px;
+    margin-bottom: 50px;
+}
+
+.last-list li
+{
+    display: inline-block;
+    color: darkgray;
+    align-self: center;
+}
+
+.last-list
+{
+    text-align: justify;
+}
+
+.last-list:after
+{
+    content:' ';
+    display:inline-block;
+    width: 90%;
+    height: 0
+}
+
+.popular
+{
+    padding-top: 10%;
+}
+
+.reviews
+{
+    margin-right: 3%;
+    padding-bottom: 40px;
+}
+
+.theory1
+{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:120%;
+    font-style:italic;
+    color:white;
+    text-align:center;
+    padding-left: 10%;
+    padding-right: 10%;
+}

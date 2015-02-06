@@ -1,0 +1,97 @@
+ {% extends "ModifiedHeader.html" %}
+ {% load custom_filters %}
+ {% block footer %}
+            <div class="row" style="margin-bottom: 20px">
+                <div class="section-title"></div>
+            </div>
+            <div class='row footer-type  property' data-equalizer="">
+
+
+                <div class="large-3 medium-3 small-12 columns large-pull-0 left-align" data-equalizer-watch="height">
+                    <section>
+                        <a href="{% url 'contactus' %}"><p>About Us</p></a>
+                        <a href="{% url 'tnc' %}"><p>Terms & Conditions</p></a>
+                        <a href="{% url 'privacy' %}"><p>Privacy Policy</p></a>
+                        <a href="{% url 'drp' %}"><p>Delivery & Return Policy</p></a>
+                        <a><p><br></p></a>
+                    </section>
+                    <section style="color: #999999;margin-top: 10px">
+                        <p>Follow us on</p>
+                        <ul class=" icons-list inline-list">
+                            <li><a href="https://www.facebook.com/KustomMadeFurniture"
+                                   class="icons-sprite icons-socialmedia-facebook" target="_blank"></a>
+                            </li>
+                            {#                            <li><a class="icons-sprite icons-socialmedia-googlplus"></a></li>#}
+
+                            <li><a href="https://twitter.com/KustomMade1"
+                                   class="icons-sprite icons-socialmedia-twitter" target="_blank"></a></li>
+                            <li>
+                                <a href="https://plus.google.com/u/0/b/106517348684058897620/106517348684058897620/posts"
+                                   class="icons-sprite icons-socialmedia-googlplus" target="_blank"></a></li>
+                            <li><a href="http://www.pinterest.com/kustommadewood/"
+                                   class="icons-sprite icons-socialmedia-pinterest" target="_blank"></a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="large-3 medium-3 small-12 columns left-align property-shipping"
+                     data-equalizer-watch="height">
+
+                    <section style="color:#999999;">
+                        <p>SECURE PAYMENT OPTIONS</p>
+
+                        <p>
+                            <img src="{{ STATIC_CDN_URL|CDNMapper }}images/miscellaneous/payment.png" alt>
+                        </p>
+                    </section>
+                    <section style="color:#999;margin-top:10px">
+                        <div>
+                            <p>BY E-MAIL</p>
+
+                            <p style="font-size:14px;color:#333">
+                                wecare@kustommade.com
+                            </p>
+                        </div>
+                    </section>
+                    <section style="color:#999;margin-top:10px">
+                        <div>
+                            <p>BY PHONE</p>
+
+                            <p style="font-size:14px;color:#333">{{ CONTACT_PHONE_NUMBER }} </p>
+                        </div>
+                    </section>
+                </div>
+                <div class="large-5 medium-5 small-12 columns" data-equalizer-watch="height">
+                    <div class="footerPanel">
+                        <form id="footerSubscriberForm" data-abide novalidate="novalidate">
+                            <div class="row" style="margin-left: 0px">
+                                <div class="large-11 medium-11 large-centered columns">
+                                    <p style="padding-top: 7px;">Sign up for our newsletter and you could win exciting
+                                        offers and shopping
+                                        vouchers!</p>
+
+                                    <div class="row collapse news-letter" style="padding-top: 32px;">
+                                        <div class="small-8 columns email-field" style="max-height: 39px;">
+                                            <label>
+                                                <input id="emailId" type="email" style="height:33px"
+                                                       pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z-.]+$"
+                                                       placeholder="YOUR E-MAIL" required data-invalid>
+                                            </label>
+                                            <small class="error" style="position: absolute; width: 100%">Invalid Email
+                                                Address
+                                            </small>
+                                        </div>
+                                        <div class="small-3 pull-1 columns">
+                                            <a data-reveal-id="SubscribeModal" onclick="validateSubscriptionEmail()"
+                                               class="button postfix redbutton"
+                                               style="height:33px;text-align:center;margin-bottom: 0px;">Sign up</a>
+                                        </div>
+
+                                    </div>
+                                    <span style="font-size: 0.8rem;color: #999999">*No Spam* We cross our hearts.</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+ {% endblock footer %}

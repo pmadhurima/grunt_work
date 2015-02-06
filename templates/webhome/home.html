@@ -1,0 +1,180 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<head lang="en" xmlns="http://www.w3.org/1999/html">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'webhome/sheet1.css' %}">
+    <title>HOME PAGE</title>
+</head>
+<body>
+    <header style="padding-left: 200px;padding-right:200px">
+        <div style="float: left">
+            <p>Call @ - 040-60606083 </p>
+            <a href="Blog">Blog</a>
+        </div>
+        <div style="float: right">
+            <img src="person" />
+            <img src="cart"/>
+        </div>
+    </header>
+    <div id="heading" align="center">
+        <hr width="20%" class="hr1">
+        <p>UNIQUELY YOURS</p>
+    </div>
+    <div id="after head" align="center">
+        <ul class="nav nav-tabs" style="padding-left: 50px ">
+            <li><a href="#">WARDROBES</a></li>
+            <li><a href="#">SOFAS</a></li>
+            <li><a href="#">KITCHENS</a></li>
+            <li><a href="#">DINING</a></li>
+            <li><a href="#">BEDS</a></li>
+            <li><a href="#">HOME DECOR</a></li>
+            <li align="right">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form></li>
+            </ul>
+        <img width="100%" src="{% static "webhome/images/img1.fw.png" %}" height="300px" align="center"/><br/><br/>
+        <h3>BUILD YOUR EXCLUSIVE DESIGN</h3>
+        <p class="div2">Use our 'DESIGN STUDIO' to design your own furniture</p><br/>
+        <div style="background-color: dimgray">
+            <br/>
+            <br/>
+            <p class="theory1"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+            <br/>
+            <input type="button"  value="DESIGN NOW" class="buttons" style="border-color: white;border-style: solid"/><br/><br/>
+            <a href="#" style="color: white;text-decoration: underline;font-size: smaller" >How it works</a><br/><br/><p>  </p>
+        </div>
+        <p> Or</p>
+        <p> EXPLORE NOW </p>
+        <p style="font-size: xx-large"> &#8659</p>
+        <hr class="common-line">
+
+        <div class="sofas">
+            <div style="float: left;width: 50%;height: 400px">
+                <img height="400px" width="100%" alt="sofa image" align="left" src="{% static "webhome/images/sofa image.fw.png" %}"/>
+            </div>
+           <div style="float: right;width:50%; height: 400px">
+                <p style="font-size: x-large" align="center">SOFAS</p><hr width="40%" align="center ">
+                <p class="theory"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+                <p style="font-style: italic;padding-top: 30px;padding-bottom: 30px"> Starts @ 25,000/-</p>
+                <button class="buttons" >SHOP NOW</button>
+                <button class="buttons"> CUSTOMIZE</button>
+            </div>
+        </div>
+        <div class="popular">
+            <h4 align="left">POPULAR</h4>
+            <img  style="margin-right: 50px;float: left" src="{% static "webhome/images/sofa1.fw.png" %}" alt="sofa 1"/>
+            <img  style="margin-right: 50px" src="{% static "webhome/images/sofa2.fw.png" %}" alt="sofa 2"/>
+            <img  src="{% static "webhome/images/sofa3.fw.png" %}" alt="sofa 3" style="float: right"/><br/>
+        </div>
+
+        <hr class="common-line"/>
+
+        <div class="wardrobes" >
+            <div style="float: left;width:50%;height: 400px">
+                <p style="font-size: x-large" align="center">WARDROBE</p><hr width="40%" align="center ">
+                <p class="theory"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+                <p style="font-style: italic;padding-top: 30px;padding-bottom: 30px"> Starts @ 25,000/-</p>
+                <button class="buttons">SHOP NOW</button>
+                <button class="buttons"> BUILD YOURS</button>
+            </div>
+            <div style="float: right;width: 50%;height: 400px">
+                <img src="{% static "webhome/images/wardrobe image.fw.png" %}" height="400px" width="100%" alt="wardrobe image" >
+            </div>
+        </div>
+        <div class="popular">
+            <h4 align="right" style="margin-top: 20px">POPULAR</h4>
+            <img  src="{% static "webhome/images/wardrobe1.fw.png" %}" alt="wardrobe 1" style="float: left;padding-left: 5%;padding-right: 5%"/>
+            <img  src="{% static "webhome/images/wardrobe2.fw.png" %}" alt="wardrobe 2" style="padding-left: 5%;padding-right: 5%"/>
+            <img  src="{% static "webhome/images/wardrobe3.fw.png" %}" alt="wardrobe 3" style="float: right;padding-left: 5%;padding-right: 5%"/><br/>
+        </div>
+
+        <hr class="common-line"/>
+
+        <div class="kitchens">
+            <div style="float: left;width: 50%">
+                <img height="400px" width="100%" alt="kitchen image" align="left" src="{% static "webhome/images/kitchen image.fw.png" %}"/>
+            </div>
+           <div style="float: right;width: 50%;padding: 4%;height: 400px">
+                <p style="font-size: x-large" align="center">KITCHENS</p><hr width="40%" align="center ">
+                <p class="theory"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+                <p style="font-style: italic;padding-top: 30px;padding-bottom: 30px"> Starts @ 25,000/-</p>
+                <button class="buttons" >GET ESTIMATION</button>
+            </div>
+        </div>
+        <div class="popular">
+            <h4 align="left" style="margin-top: 20px">POPULAR</h4>
+            <img width="29%" height="250px" style="margin-right: 50px" src="{% static "webhome/images/kitchen1.fw.png" %}" alt="kitchen 1"/>
+            <img width="29%" height="250px" style="margin-right: 50px" src="{% static "webhome/images/kitchen2.fw.png" %}" alt="kitchen 2"/>
+            <img width="29%" height="250px" src="{% static "webhome/images/kitchen3.fw.png" %}" alt="kitchen 3"/><br/>
+        </div>
+
+        <hr class="common-line"/>
+
+        <div class="how-it-works">
+            <p style="font-size: x-large" align="center">HOW KUSTOMMADE WORKS</p><hr width="30%" align="center ">
+            <p class="theory2"> "Lorem ipsum dolor sit amet, sint dictunt mel at. Vocent antiopam intellegebat in eos, no per diam reformidans. Duis mnesarchum duo ne. In sint conceptam vis, singulis percipitur comprehensam no vis, timean."</p>
+            <img width="22%" height="20%"src="{% static "webhome/images/design.fw.png" %}" alt="design"/>
+            <img width="22%" height="20%" src="{% static "webhome/images/expert.fw.png" %}" alt="expert visit"/>
+            <img width="22%" height="20%" src="{% static "webhome/images/delivery.fw.png" %}" alt="delivery"/>
+            <img width="22%" height="20%" src="{% static "webhome/images/installation.fw.png" %}" alt="installation"/>
+
+        </div>
+
+        <hr class="common-line"/>
+
+        <div class="reviews">
+            <p style="font-size: x-large;padding-bottom: 0%" align="center">CUSTOMER REVIEWS</p><hr width="40%" align="center " style="padding-top: 0px">
+            <img src="{% static "webhome/images/customer.fw.png" %}" align="center"/>
+            <ul class="last-list">
+                <li><img src="{% static "webhome/images/free home.fw.png" %}"/>Free Home Delivery</li>
+                <li><img src="{% static "webhome/images/original.fw.png" %}" />100% original</li>
+                <li><img src="{% static "webhome/images/secure.fw.png" %}">Secure Payment</li>
+                <li><img src="{% static "webhome/images/30 days.fw.png" %}">30 Days Leadtime</li>
+                <li><img src="{% static "webhome/images/support.fw.png" %}">24/7 Support </li>
+            </ul>
+        </div>
+
+
+        <div>
+            <div style="float: left;width: 30%;">
+                <ul style="list-style: none;text-align: start">
+                    <li>Contact Us</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                    <li>Delivery & Return Policy</li>
+                    <li>   </li><br/><br/>
+                    <li style="color: darkgrey"> Follow us on</li>
+                    <img src="{% static "webhome/images/follow.fw.png" %}"/>
+                </ul>
+            </div>
+             <div style="background-color: lightgray;height: 150px;float: right;width: 40%;margin-right: 50px;margin-bottom: 40px">
+                <p style="padding: 20px;margin-left: 20px">Sign up for our Newsletter and you could win exciting offers and shopping vouchers!</p>
+                <input type="text" value="Your e-mail" style="color: darkgrey;height: 35px" size="40"/>
+                 <input type="button" style="background: red;border-color: red;color: white;width: 100px;height: 35px;" value="Sign up"/>
+                 <p style="color: darkgrey;font-size: smaller;margin-left: 40px;text-align: left">"No Spam" we cross our hearts</p>
+            </div>
+            <div >
+                <ul style="list-style: none;text-align: start">
+                    <li> Warranty</li>
+                    <li>Care Instructions</li>
+                    <li>Returns</li>
+                    <li>Quality Promise</li>
+                    <li>Materials</li><br/>
+                    <li style="color: darkgrey">Shipping Partners</li>
+                    <img src="{% static "webhome/images/dtdc.fw.png" %}"/>
+                    <img src="{% static "webhome/images/ebs.fw.png" %}" />
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer style="padding-top: 25px;margin-bottom: 0px;text-align: center">
+        <p style="background-color: darkgrey;height: 40px;padding-top: 10px" align="center"> @2013, KustomMade.com, All rights reserved </p>
+    </footer>
+</body>
+</html>

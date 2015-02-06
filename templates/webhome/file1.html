@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        if (window.location.pathname == '/') {
+            var img = new Image();
+            var img1 = new Image();
+            img.src = "/static/images/landingPage/sofa_newyear.jpg";
+            img1.src = "/static/images/landingPage/loadSlider.png";
+        }
+    </script>
+</head>
+<body>
+
+    {% block javascript_child_library %}
+
+        {% if not IS_GZIP_ENABLED and not IS_COMPRESSED_ENABLED %}
+            {#            do nothing#}
+        {% else %}
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/modernizr.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/vendor/jquery.js"></script>
+            <script src="{{ STATIC_CDN_URL|CDNMapper }}js/foundation.min.js"></script>
+        {% endif %}
+
+    {% endblock javascript_child_library %}
+
+    {% block javascript %}
+
+    {% endblock javascript %}
+
+</body>
+</html>
